@@ -1,0 +1,91 @@
+site_name: AnythingMC Guides
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: black
+    accent: red
+markdown-extensions:
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde  
+
+nav:
+  - Introduction: index.md
+  - Info:
+    - DE:
+      - Intro: info/de_de/server_jars.md
+    - EN:
+      - Configuring your server: info/en_us/configuration_options.md
+      - Hosting Providers: info/en_us/hosting_providers.md
+      - Picking a server JAR: info/en_us/server_jars.md
+      - Plugins:
+        - Anticheats: info/en_us/plugins/anticheats
+        - Permissions Plugins: info/en_us/plugins/permission
+        - Useful Plugins: info/en_us/plugins/useful_plugins
+  - Resources:
+    - Kubernetes:
+      - K3S Simple:
+        - K3S Simple Setup: resources/kubernetes/k3s-simple/readme.en_us
+  - Tutorials:
+    - DE:
+      - Enrichtung:
+        - Intro: tutorials/de_de/enrichtung/grundlegend
+      - JARs:
+        - Intro: tutorials/de_de/jars/finden
+    - EN:
+      - Community: tutorials/en_us/community
+      - Moderation: tutorials/en_us/moderation
+      - Remote Server Management: tutorials/en_us/remote_server_management
+      - JARs:
+        - Advanced JAR picking: tutorials/en_us/jars/advanced
+        - Intro: tutorials/en_us/jars/finding
+        - Introduction: tutorials/en_us/jars/optimization
+      - Plugins:
+        - How to install and use Fast Chunk Pregenerator: tutorials/en_us/plugins/fast_chunk_pregenerator
+        - How to install and use Fast Async World Edit (FAWE): tutorials/en_us/plugins/fawe
+      - Settings:
+        - Changing server settings: tutorials/en_us/settings/changing
+      - Setup:
+        - Advanced Configuration: tutorials/en_us/setup/advanced
+        - Intro: tutorials/en_us/setup/basic
+        - Raspberry Pi: tutorials/en_us/setup/raspi
+        - Platforms:
+          - Setup for Docker: tutorials/en_us/setup/platforms/docker
+          - Setup for Linux: tutorials/en_us/setup/platforms/linux
+          - Setup for Windows: tutorials/en_us/setup/platforms/windows
