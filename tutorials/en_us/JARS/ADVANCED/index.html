@@ -1,0 +1,1661 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.8">
+    
+    
+      
+        <title>Advanced JAR picking - AnythingMC Guides</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="red">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advanced-jar-picking" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../../.." title="AnythingMC Guides" class="md-header-nav__button md-logo" aria-label="AnythingMC Guides">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            AnythingMC Guides
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Advanced JAR picking
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="AnythingMC Guides" class="md-nav__button md-logo" aria-label="AnythingMC Guides">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    AnythingMC Guides
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Info
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Info" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Info
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+      
+      <label class="md-nav__link" for="nav-2-1">
+        DE
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DE" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          DE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../info/de_de/server_jars.md" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        EN
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="EN" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          EN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../info/en_us/configuration_options.md" class="md-nav__link">
+        Configuring your server
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../info/en_us/hosting_providers.md" class="md-nav__link">
+        Hosting Providers
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../info/en_us/server_jars.md" class="md-nav__link">
+        Picking a server JAR
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2-4" type="checkbox" id="nav-2-2-4" >
+      
+      <label class="md-nav__link" for="nav-2-2-4">
+        Plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Plugins" data-md-level="3">
+        <label class="md-nav__title" for="nav-2-2-4">
+          <span class="md-nav__icon md-icon"></span>
+          Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../info/en_us/plugins/anticheats" class="md-nav__link">
+        Anticheats
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../info/en_us/plugins/permission" class="md-nav__link">
+        Permissions Plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../info/en_us/plugins/useful_plugins" class="md-nav__link">
+        Useful Plugins
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
+      
+      <label class="md-nav__link" for="nav-3">
+        Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Resources" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" >
+      
+      <label class="md-nav__link" for="nav-3-1">
+        Kubernetes
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Kubernetes" data-md-level="2">
+        <label class="md-nav__title" for="nav-3-1">
+          <span class="md-nav__icon md-icon"></span>
+          Kubernetes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3-1-1" type="checkbox" id="nav-3-1-1" >
+      
+      <label class="md-nav__link" for="nav-3-1-1">
+        K3S Simple
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="K3S Simple" data-md-level="3">
+        <label class="md-nav__title" for="nav-3-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          K3S Simple
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../resources/kubernetes/k3s-simple/readme.en_us" class="md-nav__link">
+        K3S Simple Setup
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
+        Tutorials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" >
+      
+      <label class="md-nav__link" for="nav-4-1">
+        DE
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="DE" data-md-level="2">
+        <label class="md-nav__title" for="nav-4-1">
+          <span class="md-nav__icon md-icon"></span>
+          DE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1-1" type="checkbox" id="nav-4-1-1" >
+      
+      <label class="md-nav__link" for="nav-4-1-1">
+        Enrichtung
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Enrichtung" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-1-1">
+          <span class="md-nav__icon md-icon"></span>
+          Enrichtung
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../de_de/enrichtung/grundlegend" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-1-2" type="checkbox" id="nav-4-1-2" >
+      
+      <label class="md-nav__link" for="nav-4-1-2">
+        JARs
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="JARs" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-1-2">
+          <span class="md-nav__icon md-icon"></span>
+          JARs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../de_de/jars/finden" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" >
+      
+      <label class="md-nav__link" for="nav-4-2">
+        EN
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="EN" data-md-level="2">
+        <label class="md-nav__title" for="nav-4-2">
+          <span class="md-nav__icon md-icon"></span>
+          EN
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community" class="md-nav__link">
+        Community
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../moderation" class="md-nav__link">
+        Moderation
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../remote_server_management" class="md-nav__link">
+        Remote Server Management
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2-4" type="checkbox" id="nav-4-2-4" >
+      
+      <label class="md-nav__link" for="nav-4-2-4">
+        JARs
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="JARs" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-2-4">
+          <span class="md-nav__icon md-icon"></span>
+          JARs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jars/advanced" class="md-nav__link">
+        Advanced JAR picking
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jars/finding" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jars/optimization" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2-5" type="checkbox" id="nav-4-2-5" >
+      
+      <label class="md-nav__link" for="nav-4-2-5">
+        Plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Plugins" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-2-5">
+          <span class="md-nav__icon md-icon"></span>
+          Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/fast_chunk_pregenerator" class="md-nav__link">
+        How to install and use Fast Chunk Pregenerator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/fawe" class="md-nav__link">
+        How to install and use Fast Async World Edit (FAWE)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2-6" type="checkbox" id="nav-4-2-6" >
+      
+      <label class="md-nav__link" for="nav-4-2-6">
+        Settings
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Settings" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-2-6">
+          <span class="md-nav__icon md-icon"></span>
+          Settings
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../settings/changing" class="md-nav__link">
+        Changing server settings
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2-7" type="checkbox" id="nav-4-2-7" >
+      
+      <label class="md-nav__link" for="nav-4-2-7">
+        Setup
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Setup" data-md-level="3">
+        <label class="md-nav__title" for="nav-4-2-7">
+          <span class="md-nav__icon md-icon"></span>
+          Setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/advanced" class="md-nav__link">
+        Advanced Configuration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/basic" class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/raspi" class="md-nav__link">
+        Raspberry Pi
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4-2-7-4" type="checkbox" id="nav-4-2-7-4" >
+      
+      <label class="md-nav__link" for="nav-4-2-7-4">
+        Platforms
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Platforms" data-md-level="4">
+        <label class="md-nav__title" for="nav-4-2-7-4">
+          <span class="md-nav__icon md-icon"></span>
+          Platforms
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/platforms/docker" class="md-nav__link">
+        Setup for Docker
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/platforms/linux" class="md-nav__link">
+        Setup for Linux
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/platforms/windows" class="md-nav__link">
+        Setup for Windows
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#server-software" class="md-nav__link">
+    Server Software
+  </a>
+  
+    <nav class="md-nav" aria-label="Server Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    Note
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modded-server-jars" class="md-nav__link">
+    Modded Server JARS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins-and-mods" class="md-nav__link">
+    Plugins and Mods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-software" class="md-nav__link">
+    Network Software
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="advanced-jar-picking">Advanced JAR picking<a class="headerlink" href="#advanced-jar-picking" title="Permanent link">&para;</a></h1>
+<p>If you want to go a little more in-depth with JAR picking, you've come to the right place.</p>
+<h2 id="server-software">Server Software<a class="headerlink" href="#server-software" title="Permanent link">&para;</a></h2>
+<p>Server software is the software that allows multiple players to play on a server together.</p>
+<h3 id="note">Note<a class="headerlink" href="#note" title="Permanent link">&para;</a></h3>
+<p>A * means that the developer of that project mass produces them. This leads to a lack of support, lack of updates, and quick abandonement.</p>
+<h3 id="plugins">Plugins:<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><a href="https://getbukkit.org/download/craftbukkit">CraftBukkit</a> - It's the BASE for all forks that are out today and they still are updating it to this day, not newbie friendly at all because it requires manual building (or you can get it <a href="https://getbukkit.org">here</a>). The only real use is for Minecraft versions from <code>1.0.0</code> to <code>1.4.5</code> as there is no Spigot release for these versions.<br />
+Version: 1.0.0 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.spigotmc.org/">SpigotMC</a> - The original fork of Bukkit. Spigot has improved performance vs CraftBukkit, still widely used. It's a recommended alternative if for some reason you don't want to use PaperMC.<br />
+Version: 1.4.6 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://papermc.io/">PaperMC</a> - Most popular JAR for Spigot/Bukkit, quite fast and stable, they roll out small patches frequently, so it is a good choice if you're just starting with your MC server and don't have much experience.<br />
+Version: 1.7.10 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/Spottedleaf/Tuinity">Tuinity</a> - PaperMC fork aimed at improving stability and performance at high player counts.<br />
+Version: 1.13.2 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://purpur.pl3x.net/">Purpur</a> - It's a fork of PaperMC with Tuinity and Airplane patches to deliver very fast performance with stability for high player counts and it adds a lot of custom features that aren't seen on any other forks.<br />
+Version: 1.14.4 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/TECHNOVE/Airplane">Airplane</a> - This fork includes optimizations oriented towards large servers.<br />
+Version: ??? - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/notOM3GA/Purplane">Purplane</a> - A fork of purpur that adds features from <a href="https://github.com/TECHNOVE/Airplane">Airplane</a>. Purpur added Airplane patches and is now discontinued.<br />
+Version: 1.16.5<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.spongepowered.org/downloads/spongevanilla">SpongeVanilla</a> - A server implementing the Sponge API, a different plugin API separate from the Bukkit API. This implementation also includes some general improvements regarding performance and server settings.<br />
+Version: 1.8 - 1.12.2<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/8592/">FoxSpigot</a>* - FoxSpigot is a fork of Spigot aiming to make PvP servers perform better.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/YatopiaMC/Yatopia">Yatopia</a> - Aims to combine the code from many Paper forks and optimization mods, as well as many unique optimizations, but it's known to be very unstable and usually, Purpur is a better choice. Only use if you desperately need performance and think it's worth the instability.<br />
+Version: 1.15.2 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://cuberite.org/">Cuberite</a> - Cuberite is a server software developed in C++ and plugins are written in LUA. Cuberite is very lightweight and they also allow you to run a server on your android device! Cuberite is only 1.8-1.12, 1.13+ compatibility is being worked on.<br />
+Version: 1.8 - 1.12.2<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/GlowstoneMC/Glowstone">Glowstone</a> - Glowstone is a lightweight, from scratch, open-source Minecraft server written in Java that supports plugins written for the Bukkit API and its major forks, Spigot and Paper.<br />
+Version: ???<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/TacoSpigot/TacoSpigot">TacoSpigot</a> - A even-higher higher performance PaperSpigot fork that adds new features.<br />
+Version: 1.8 - 1.10, 1.12<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/SharpMC/SharpMC">SharpMC</a> - A 1.8 server made from scratch in C#.<br />
+Version: 1.8.x<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/SharperMC/SharperMC">SharperMC</a> - SharperMC is a C# 1.8.x Minecraft server running on the .NET Framework. SharperMC is a fork of <a href="https://github.com/SharpMC/SharpMC">SharpMC</a> which was last updated in 2015.<br />
+Version: 1.8.x<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/Minestom/Minestom">MineStom</a> - MineStorm is an entire recode of Minecraft servers from the base up meant to remove all vanilla features. It removes features like the server understanding what a chest is, which allows HUGE performance increases for minigame servers as they may not need that feature. Every feature can be added back. Due to this, development would take longer and would not be suitable for survival servers.<br />
+Version: ???<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/Akarin-project/Akarin/tree/ver/1.16.4">Akarin</a> - A Spigot plugin compatible project aiming at becoming fairly multicore compatible. This is a fork of Tuinity aiming to simplify the logic and implement multi-threaded computing and make servers more safe and stable.<br />
+Version: 1.13.2 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p>AtomSpigot - A 1.8.8 TacoSpigot fork with crash fixes, async hit detection, and async knockback built it. Currently not available through legal means due to a false ban off of MCMarket.<br />
+Version: 1.8.8<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://cloudnetservice.eu/repositories/de/dytanic/dytanicspigot-api/">DytanicSpigot</a> - Other than its API it has been lost to time, but it was a Spigot fork said to be capable of stability hitting 40 TPS, although there's not much left of it to show if it was.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/11411/">xSpigot</a> - A 1.7.10 - 1.8.x TacoSpigot fork with custom knockback editing and options such as toggleable mob AI. This is meant for HCF servers and practice PvP servers.<br />
+Version: 1.7.10 - 1.8.x<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/7198/">ySpigot</a> - ySpigot is a remake of xSpigot for later versions of Minecraft.<br />
+Version: 1.7.10 - 1.12.x
+DISCONTINUED</p>
+</li>
+<li>
+<p>zSpigot - A 1.7.10 Paper fork with huge optimizations, completely custom knockback editing, built-in server benchmarking, and more PvP based features. Ironically, despite it originally being a premium resource the only way to get it now is through a leaks website due to the creator leaking resources.<br />
+Version: 1.7.10<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/6864/">mSpigot</a>* - Another premium TacoSpigot fork with promises of improved TNT and knockback aimed at PvP and Factions servers.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/10770/">ImanitySpigot</a> - ImanitySpigot provides you with a better PvP experience with smooth hit detection, customizable knockback and projectile enhancements.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/starlis/empirecraft">EmpireCraft</a> - EmpireCraft is a fork of Spigot used by the <a href="https://empireminecraft.com/lp/?user=Aikar&amp;utm_campaign=Player%20Referrals&amp;utm_source=github.com&amp;utm_medium=Aikar">Empire Minecraft Server</a>. It contains many gameplay changes to suit the EmpireCraft server, but more importantly, contains new performance improvements pending testing to be contributed to Spigot / Paper / Sponge.<br />
+Version: 1.9 - 1.13.2, 1.15.2 - 1.16.2<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/Minebench/Origami">Origami</a> - Custom paper fork used by <a href="https://www.minebench.de/">Minebench.de</a>. The fork is based on the framework used in <a href="https://github.com/Spottedleaf/Tuinity">Spottedleaf's Tuinity</a>.<br />
+Version: 1.14.4 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/softpak/HOSE">HOSE</a> - MInecraft server with multi-thread computing.<br />
+Version: 1.11.2<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/CleanstoneMC/Cleanstone">Cleanstone</a> - A multi-core design server jar coded from the ground up.<br />
+Version: 1.12.2 - 1.14<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/McEx/McEx">McEx</a> - McEx is a Minecraft server written in Elixir and Rust. All the networking and logic is implemented in Elixir, while the low-level chunk data handling is done in Rust.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/grahamedgecombe/lightstone">Lightstone</a> - The official server software has some shortcomings such as the use of threaded, synchronous I/O along with high CPU and RAM usage. Lightstone aims to be a lightweight and high-performance alternative.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/5376/">PerfectSpigot</a> - A 1.8.8 Paper fork focused on Factions servers with optimized cannoning and built-in world generators.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/threads/355569/">BeerSpigot</a> - A 1.8.8 TacoSpigot fork focused on Factions servers with a built-in knockback editing,  with a lot of built-in Factions features (Grace Period, Cannoning Optimization, and Setting Global Spawner Values).<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/threads/475910/">BreadSpigot</a> - A 1.8.8 TacoSpigot fork focused on SkyBlock servers with huge entity optimizations, built-in mob stacking, and a built-in knockback editor.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/threads/480567/">ElapsedSpigot</a> - A 1.8.8 TacoSpigot fork focused on Factions servers with a built-in mob stacker, configurable block durabilities, huge factions based optimizations, and some vanilla feature toggles.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/threads/523827/">StellarSpigot</a> - A 1.8.8 TacoSpigot fork with a huge assortment of features and optimizations aimed at Factions servers.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/TorchSpigot/Torch">TorchSpigot</a> - The now abandoned predecessor to Akarin based on a goal of getting Paper to run on multiple threads.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/16271/">APOLLO16 </a> - A 1.16.5 Purpur fork with a built-in system monitor and optimized block and chunk ticking methods.<br />
+Version: 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/16933/">LightSpigot 1.8.8</a> - A free 1.8.8 Spigot fork focused on adding some optimizations and features for HCF servers, like enderpearls teleporting through slabs.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/17753/">LightSpigot 1.16.5</a> - A 1.16.5 Spigot fork with some spawner / general performance optimizations and custom knockback editing.<br />
+Version: 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/threads/571429/">VoltaneSpigot</a> - A 1.8.8 based TacoSpigot fork with built-in 1.7 - 1.16 client support with multi-thread support, custom knockback editing, discord server integration, and a lot of factions based features.<br />
+Version: 1.8.8<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/14122/">SSSpigot</a> - A 1.16.5 Paper fork with multi-thread support, useless code removal, some general optimizations, and tracking metrics disabled.<br />
+Version: 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/13898/">RocketMC</a> - A 1.15.2 Tuinity fork with a built-in monitoring system, plugin manager (enabling, disabling, command info), and general performance optimizations.<br />
+Version: 1.15.2<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/6101/">aSpigot</a>* - aSpigot is a premium 1.7.10 Paper fork with custom knockback editing, togglable features like mob AI, and various features pointed at HCF servers.<br />
+Version: 1.7.10<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/14263/">BeeSpigot</a>* - BeeSpigot is a premium 1.15.2 Paper fork with custom knockback editing, togglable features like mob AI, and some general optimizations.<br />
+Version: 1.15.2<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/14170/">CoronaSpigot</a>* - CoronaSpigot is a premium 1.8.8 Paper fork with custom knockback editing and some general optimizations.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/CraftLight-Network/Fish">Fish</a> - Fish is a 1.16.5 Purpur fork with features that are too niche to be added to Purpur and changes that may eventually be upstreamed to Purpur or its subsequent upstreams.<br />
+Version: 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/14497/">GuardSpigot</a> - GuardSpigot is a 1.8.8 $99 premium TacoSpigot fork with features like custom knockback editing, lag machine detection, and a bunch of features you can toggle like mob AI for performance gain/gameplay change.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/CobbleSword/NachoSpigot">NachoSpigot</a> - NachoSpigot is a 1.8.8 TacoSpigot fork aimed at bringing modern patches and optimizations to 1.8.<br />
+Version: 1.8.8<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/Proximyst/Rainforest">Rainforest</a> - RainForest is a 1.16.1 - 1.16.5 Paper fork with optimizations that they're testing out/optimizations that they plan to keep to themselves.<br />
+Version: 1.16.1 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/StratusNetwork/SportBukkit">SportBukkit</a> - SportBukkit is a fork of CraftBukkit improving stability and adding some new features. It was developed for and by the StratusNetwork server.<br />
+Version: 1.8 - 1.12.2<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/StratusNetwork/SportPaper">SportPaper</a> - SportPaper is a 1.8.8 fork of Paper improving performance even more. It is developed for and by the StratusNetwork server.<br />
+Version: 1.8<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/18663/">SternalSpigot</a>* - SternalSpigot is a premium 1.8.8 TacoSpigot fork that tries to move a lot of processes to an async system, has some general optimizations, and has some knockback profiles to switch between for different results.<br />
+Version: 1.8.8<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/6874/">wSpigot</a>* - wSpigot is a 1.7.10 Paper fork with custom knockback profiles, built-in 1.8 client support, and a lot of HCF based features/optimizations.<br />
+Version: 1.7.10<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/CanaryModTeam/CanaryMod">CanaryMod</a> - A fork of hMod for implementing some of Bukkit's patches. Used on the MinecraftOnline server.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/vantezzen/cauldron-js">Cauldron-js</a> - Cauldron-js is just a proof of concept idea of running a 1.13.2 server entirely inside your web browser. Doesn't run great, but still an achievement.<br />
+Version: 1.13.2<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/feather-rs/feather">Feather</a> - Feather is a recode of Minecraft servers entirely in the Rust programming language, aimed at making the server run multicore - this would significantly increase performance. It currently only supports 1.16.5. Worth noting, their plugin API is not finished yet either.<br />
+Version: 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/traitor/Minecraft-Server-Mod/">hMod</a> - The first server type with server-side mods (plugins) supported. It supported early Alpha versions.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/NeptunePowered/NeptuneMod">NeptuneVanilla</a> - A continuation of CanaryMod under a new repository and name.<br />
+Version: 1.8.9 - 1.9<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://ci.codecrafter47.de/job/Rainbow/">Project-Rainbow</a> - Project-Rainbow was an attempt at overthrowing Bukkit with a new platform, but as we can tell that didn't work.<br />
+Version: 1.13.2<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/x4e/PaperBin">PaperBin</a> - PaperBin is a fork of paper, it patches dupes, bugs and more. It aims to continue 1.12.2 paper and provide support. You can even use it on top of custom paper forks because it uses JVMTI to modify Minecraft classes at runtime.<br />
+Version: 1.12.2<br />
+Currently Active</p>
+</li>
+</ul>
+<h3 id="modded-server-jars">Modded Server JARS<a class="headerlink" href="#modded-server-jars" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><a href="http://files.minecraftforge.net/">Forge</a> - Forge is server software based on the MCP. Both the server and client need to be running the same mods.<br />
+Version: 1.1 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://fabricmc.net/">Fabric</a> - Fabric, unlike Forge, is not based on the MCP. This allows it to be updated for snapshots easier. <strong>It is incompatible with Forge.</strong><br />
+Version: 1.14 - 21w06a (1.17 Snapshot)<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://mcarchive.net/mods/modloadermp">ModLoaderMP</a> - ModLoaderMP was the first multiplayer mod loader, supporting from Beta 1.4 to release 1.5.2.<br />
+Version: Beta 1.4 - 1.5.2</p>
+</li>
+</ul>
+<h3 id="plugins-and-mods">Plugins and Mods<a class="headerlink" href="#plugins-and-mods" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><a href="https://magmafoundation.org/">Magma</a> - Minecraft Forge hybrid server implementing the Spigot/Bukkit API (Cauldron for 1.12).<br />
+Version: 1.12.2<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://mohistmc.com/">Mohist</a> - Minecraft Forge hybrid server implementing the Paper/Spigot/Bukkit API(1.12.2/1.16). Formerly known as Thermos/Kettle/Cauldron/MCPC+.<br />
+Version: 1.7.10, 1.12.2, 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/IzzelAliz/Arclight">Arclight</a> - A Minecraft Bukkit(1.15/1.16) server implementation on Forge using Mixin.<br />
+Version: 1.14 - 1.16<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.spongepowered.org/downloads/spongeforge">SpongeForge</a> - SpongeForge allows both SpongeVanila plugins as well as Forge mods on one server.<br />
+Version: 1.10.2 - 1.12.2<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.curseforge.com/minecraft/mc-mods/cardboard">Cardboard</a> - Cardboard (formerly Bukkit4Fabric) is a Fabric mod that adds support for the popular Bukkit/Spigot modding API. This mod lets you use plugins that are made for Bukkit and it's derivatives (Spigot and Paper) with Fabric. It's not server software but allows Fabric servers to run Bukkit plugins.<br />
+Version: 1.16.4 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/josephworks/AtomMC">AtomMC</a> - Atom is a Minecraft Server Software that is based on Minecraft Forge and CraftBukkit for 1.12.2 version of Minecraft.<br />
+Version: 1.12.2<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/ishlandbukkit/Hotpur">Hotpur</a> - HotPur is a 1.16.5 fork of Purpur attempting to add Fabric mod support.<br />
+Version: 1.16.4<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://ci.md-5.net/job/Cauldron/">MCPC+</a> - MCPC+ was a 1.2.5 to 1.7.10 Bukkit/Forge hybrid, the first of its kind. It was also known as Cauldron. </p>
+</li>
+<li>
+<p><a href="https://github.com/djoveryde/KCauldron">KCauldron</a> - KCauldron is a fork of MCPC+ using Spigot instead of CraftBukkit.<br />
+Version: 1.7.10<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/CyberdyneCC/Thermos">Thermos</a> - A Fork of KCauldron with many bug fixes and performance improvements.<br />
+Version: 1.7.10<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/djoveryde/Contigo">Contigo</a> - A fork of Thermos that was opened after Thermos was discontinued and allowed the community to add patches and bug fixes.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/UraniumMC/Uranium">Uranium</a> - A fork of KCauldron that added new features and bug fixes and is a very popular server choice in China.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/Luohuayu/CatServer">CatServer</a> - A Server designed for Forge and Paper support not based on any other preexisting software.<br />
+Version: 1.12.2<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/KettleFoundation/Kettle">Kettle</a> - A fork of Contigo that was updated to 1.12.2 and later 1.14.4 which adds support Paper and Forge Support.<br />
+Version: 1.12.2 - 1.14.4<br />
+Currently Active</p>
+</li>
+<li>
+<p>TableCloth - A Hybrid jar forked from AtomMC combining Forge + Spigot and a couple of Paper Patches.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/Timardo/Lava">Lava</a> - Lava is a 1.12.2 Forge/Spigot hybrid server not forked from any other hybrid servers.<br />
+Version: 1.12.2<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/NeptunePowered/NeptuneForge">NeptuneForge</a> - A hybrid of Forge/NeptureVanilla. NeptuneVanilla being the fork of CanaryMod.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/l89669/PFServer">PFServer</a> - PFServer is a 1.12.2 fork of AtomMC and CatServer to create a better Forge/Bukkit hybrid.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+</ul>
+<h2 id="network-software">Network Software<a class="headerlink" href="#network-software" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="https://www.spigotmc.org/wiki/bungeecord/">BungeeCord</a> - Base for the Waterfall fork, these JARs are used for configuring networks of which an example is Hypixel or Mineplex, it is used for distributing workload and players to different lobbies (Different server instances run with separate files and data).<br />
+No, this can't be used as a normal JAR and requires at least 3 servers/instances, one is BungeeCord (or it's fork) which is called the proxy, players connect to this proxy and are sent to the default server which is set in config. Let's say server "Lobby" is the default, it will send you there, then you can connect to another server, for example, "Survival" which is running in a separate server/instance and BungeeCord enables the functionality travel across these different servers without returning to the multiplayer menu screen. (It can be done with special plugins which utilize BungeeCord API to send you to the chosen server on click, you'll most commonly see it as a compass or portal).<br />
+Version: 1.8 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://papermc.io/downloads#Waterfall">Waterfall</a> - Fork of BungeeCord, faster than BungeeCord and has general improvements and tweaks which make it the more preferred network JAR, works the same as BungeeCord (talking about the use, it doesn't have a different system).<br />
+Version: 1.8 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://velocitypowered.com/">Velocity</a> - A next-generation Minecraft proxy focused on scalability and flexibility. It allows server owners to link together multiple Minecraft servers so they may appear as one.<br />
+Version: 1.7.2 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/PaperMC/Travertine">Travertine</a> - Fork of Waterfall with added <code>1.7.10</code> support if you want that old school experience.<br />
+Version: 1.7 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/2LStudios-MC/FlameCord">FlameCord</a> - FlameCord is a patch for Travertine to fix possible exploits and add useful functionalities.<br />
+Version: 1.7 - 1.16.5
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/CronixMC/HexaCord">HexaCord</a> - A fork of BungeeCord that added forge support before Waterfall did.<br />
+Version: 1.7 - 1.11<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="http://www.lilypadmc.org/">LilyPad</a> - A separate Proxy with its API and Plugins that has been suggestively discontinued.<br />
+Version: ???<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://polymart.org/resource/31">Aegis</a> - A fork of BungeeCord adding many security measures and with built-in anti-bot and anti-VPN. It supports 1.7.x to 1.16.3. The developer is currently falsely banned from MC-Market.<br />
+Version: 1.7 - 1.16.4<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/minekube/gate">Gate</a> - A Minecraft Proxy that is written in Go suggesting "scalability, flexibility &amp; excellent server version support".<br />
+Version: ???<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/16843/">XCord</a> - A 1.7-1.16.x BungeeCord fork with built in anti-bot, anti-exploit, and many performance optimizations.<br />
+Version: 1.7.10 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/Mindgamesnl/BarelyAuthenticated">BarelyAuthenticated</a> - A fork of BungeeCord which caches players IPs and usernames to verify them while Mojang services are unstable. It is created and maintained for the server BlockParty.<br />
+Version: 1.8 - 1.16<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/Oculate/DarkCord">DarkCord</a> - A fork of HexaCord/BungeeCord used and made by the Oculate Network.<br />
+Version: 1.7.x - 1.11.x<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/17481/">DasBungee</a> - DasBungee is a premium BungeeCord fork that adds an IP blacklist system and patches "all known exploits".<br />
+Version: 1.8 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/SeaEclipse/Flexagon">Flexagon</a> - Flexagon is a fork of Hexacord and Travertine meant just for testing purposes.<br />
+Version: 1.7 - 1.15.2<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/StratusNetwork/Glymur">Glymur</a> - Glymur is a fork of Travertine adding in some bug fixes and Stratus APIs. It is developed by the StratusNetwork server.<br />
+Version: 1.7 - 1.14<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/LilyPad/GoLilyPad">GoLilyPad</a> - A rewrite of Lilypad in the programming language Go.<br />
+Version: ???<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/17731/">Gravity</a> - Gravity is a premium BungeeCord fork adding features like antibot, global messaging, and patches for almost all of the issues.<br />
+Version: ???<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/16180/">GuardHexa</a> - GuardHexa is a premium fork of HexaCord that patches a lot of bugs/exploits and has a bit of optimization.<br />
+Version: 1.7 - 1.16.4<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/moyugame/HQBungeeCord">HQBungeeCord</a> - HQBungeeCord is a Waterfall fork aimed at improving stability and performance.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/16588/">InsaneProxy</a> - InsaneProxy is a premium fork of Travertine and Velocity, resulting in lower CPU usage and more exploits patched.<br />
+Version: 1.7 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/root1599/Miners-League-BungeeCord">Miners-League-BungeeCord</a> - MLBC is a fork of BungeeCord created by and used by the Miners League Minigames Network for any custom patches/features they may need.<br />
+Version: ??? - 1.13<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/CobbleSword/NachoBungee">NachoBungee</a> - NachoBungee is by the guys from NachoSpigot, which is a bad sign. On the GitHub page, they list off features of what they forked, nothing new.<br />
+Version: 1.7 - 1.16<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/15002/">SecureCord</a> - SecureCord is a free BungeeCord fork which patches from harmful exploits.<br />
+Version: ???<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/14562/">SSCord</a> - SSCord is a premium fork of Waterfall adding some optimizations, anti-bot features like captcha, and patches some waterfall exploits.<br />
+Version: 1.7.2 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://github.com/ME1312/VanillaCord/tree/1.12">VanillaCord</a> - VanillaCord is a BungeeCord fork allowing Vanilla servers to connect through BungeeCord.<br />
+Version: 1.12 - 1.16.5<br />
+Currently Active</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/13579/">WaterCrash</a> - WaterCrash is a premium WaterFall fork adding 1.7.x support, adds real-time IP blacklisting, and a crash/exploit preventer. Currently, the resource purchase page is deleted for unknown reasons.<br />
+Version: 1.7 - 1.15<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://github.com/wtfaremyinitials/wCord">wCord</a> - A fork of BungeeCord with animated MOTDs.<br />
+Version: 1.4.7 - 1.6.4<br />
+DISCONTINUED</p>
+</li>
+<li>
+<p><a href="https://www.mc-market.org/resources/10187/">zBungeeCord</a> - zBungeeCord is a premium BungeeCord fork optimizing BungeeCord quite a bit and cleaning up the commands.<br />
+Version: 1.7 - 1.8<br />
+DISCONTINUED</p>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/vendor.18f0862e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.994580cf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
